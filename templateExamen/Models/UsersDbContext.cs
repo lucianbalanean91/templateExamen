@@ -21,6 +21,10 @@ namespace templateExamen.Models
                 entity.HasIndex(u => u.Username).IsUnique();
             });
 
+            builder.Entity<Pachet>(entity =>
+            {
+                entity.HasIndex(p => p.CodTracking).IsUnique();
+            });
         }
 
         // DbSet = Repository
@@ -31,6 +35,8 @@ namespace templateExamen.Models
         public DbSet<UserRole> UserRoles { get; set; }
 
         public DbSet<HistoryUserRole> HistoryUserRoles { get; set; }
+
+        public DbSet<Pachet> Pachets { get; set; }
     }
   }
 
